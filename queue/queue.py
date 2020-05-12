@@ -78,13 +78,3 @@ class Queue:
         #     return None
         
 
-# queue = Queue()
-# queue.enqueue(10)
-# queue.enqueue(11)
-# queue.enqueue(12)
-# queue.enqueue(13)
-# queue.enqueue(14)
-# print(queue.size)
-# print(queue.storage)
-# print(queue.storage)
-# print(queue.size)
