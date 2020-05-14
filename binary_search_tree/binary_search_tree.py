@@ -157,11 +157,12 @@ class BSTNode:
 
         stack = [] 
         # add the root node
-        stack.append(self)
+        stack.append(node)
 
         # loop so long as the stack still has elements 
         while len(stack) > 0:
             current = stack.pop()
+            print(current.value)
             # if current.left:
             #     stack.append(current.left)
             if current.right:
@@ -169,8 +170,7 @@ class BSTNode:
             if current.left:
                 stack.append(current.left)
 
-            print(current.value)
-
+            
     # # Stretch Goals -------------------------
     # # Note: Research may be required
 
