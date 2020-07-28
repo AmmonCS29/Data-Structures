@@ -19,6 +19,7 @@ class Node:
     self.value = value
     # reference to the next node in the list
     self.next_node = next_node
+    self.next = None
 
   def get_value(self):
     return self.value
@@ -30,37 +31,50 @@ class Node:
     # set this node's next_node reference to the passed in node
     self.next_node = new_next
 
-
 class Queue:
     def __init__(self):
-        self.size = 0
-        self.storage = list()
+        # self.size = 0
+        # self.storage = list()
+        self.head = None
+        self.last = None
     
     def __len__(self):
-        ## Step 1: Array Method     
+    ## Step 1: Array Method     
         # return len(self.storage)
-        pass
+    ## Step 2: Linked List
+        current = self.head
+        length = 0
+        while current:
+            length += 1
+            current = current.next
+        return length
+    
+        
     def enqueue(self, value):
+    ## Step 2: Linked List     
+        if self.last is None: 
+            self.head = Node(value)
+            self.last = self.head
+        else: 
+           self.last.next = Node(value)
+           self.last = self.last.next
         ## Step 1: Array Method     
         # return self.storage.append(value)
-        pass
+        
 
 
     def dequeue(self):
+    ## Step 2: Linked List
+        if self.head is None: 
+            return None
+        else: 
+            value = self.head.value
+            self.head = self.head.next
+            return value
         ## Step 1: Array Method     
         # if self.storage:
         #     return self.storage.pop(0)            
         # else: 
         #     return None
-        pass
+        
 
-# queue = Queue()
-# queue.enqueue(10)
-# queue.enqueue(11)
-# queue.enqueue(12)
-# queue.enqueue(13)
-# queue.enqueue(14)
-# print(queue.size)
-# print(queue.storage)
-# print(queue.storage)
-# print(queue.size)
